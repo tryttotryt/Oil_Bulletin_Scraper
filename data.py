@@ -15,13 +15,10 @@ date = datetime.date(2015, 1, 12)
 start_bulletin = 1735
 
 # choose your desired country's rows in the spreadsheet.
-COUNTRY_CODE = "PL"
+COUNTRY_CODE = "IT"
 
 # Bulletin upto which we collect data.
-end_bulletin = 2131
-
-# Keep track of whether a path was already selected
-settled_path = False
+END_BULLETIN = 2131
 
 def get_country_data(spreadsheet, result_path):
     # Get data from the weekly spreadshit
@@ -147,13 +144,13 @@ def get_path_name():
                 return result_path
         result_num += 1
 
-def main(start_bulletin, end_bulletin, date):
+def main(start_bulletin, END_BULLETIN, date):
 
     # Get the path to store the result
     result_path = get_path_name()
 
     # Start from the first bulletin and end at the last one
-    while start_bulletin < end_bulletin + 1:
+    while start_bulletin < END_BULLETIN + 1:
 
         # Prepare the variables to be made into a link 
         date_string = date.strftime('%Y_%m_%d')
@@ -181,7 +178,7 @@ def main(start_bulletin, end_bulletin, date):
 
 if __name__ == "__main__":
     """ This is executed when run from the command line """
-    main(start_bulletin, end_bulletin, date)
+    main(start_bulletin, END_BULLETIN, date)
 
 
 
